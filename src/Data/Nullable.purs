@@ -43,8 +43,11 @@ import Data.Ord (class Ord1)
 -- | not provided.
 foreign import data Nullable :: Type -> Type
 
+foreign import jsNull :: forall a. Nullable a
+
 -- | The null value.
-foreign import null :: forall a. Nullable a
+null :: forall a. Nullable a
+null = jsNull
 
 foreign import nullable :: forall a r. Fn3 (Nullable a) r (a -> r) r
 
